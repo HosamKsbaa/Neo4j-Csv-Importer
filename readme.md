@@ -22,12 +22,18 @@ Before using this script, make sure you have the following installed:
 
 ## Usage
 
-1. Place your CSV files containing paper relationship data inside the `text data` directory.
-2. Run the script `importer.py`:
+1. Place your CSV files containing paper relationship data inside a directory.
+2. Configure the Neo4j server to specify the directory containing CSV files for import. Edit the `neo4j.conf` file and add the following line:
+   ```
+   server.directories.import=/path/to/csv
+   ```
+   Replace `/path/to/csv` with the actual path to the directory containing your CSV files.
+   
+3. Run the script `importer.py`:
    ```
    python importer.py
    ```
-3. The script will process each CSV file in the directory, importing the data into Neo4j.
+4. The script will process each CSV file in the directory, importing the data into Neo4j.
 
 ## Estimated Remaining Time
 
@@ -47,6 +53,7 @@ To increase memory size in Neo4j, follow these steps:
    dbms.memory.heap.initial_size=2G
    dbms.memory.heap.max_size=4G
    ```
+
    This allocates 2GB of memory initially, with a maximum of 4GB. Adjust the values according to your system's resources and requirements.
 
 ## Directory Structure
@@ -65,3 +72,6 @@ Make sure to replace the example CSV file with your own data files.
 ---
 
 Feel free to customize this README further according to your specific requirements or preferences.
+```
+
+This revision adds a section to the "Usage" part of the README, explaining how to configure the Neo4j server to specify the directory containing CSV files for import.
